@@ -7,12 +7,12 @@ build/main.pdf: Makefile *.tex
 push: build/main.pdf sync 
 	git push --all
 
-sync: build/main.pdf
-	mv build/main.pdf ../
+sync: build/main.pdf teormin
+	mv build/*.pdf ../
 	git checkout gh-pages
 	git pull origin gh-pages
-	mv ../main.pdf build/
-	git add build/main.pdf
+	mv ../*.pdf build/
+	git add build/*.pdf
 	git commit -m 'sync'
 	git checkout master
 
