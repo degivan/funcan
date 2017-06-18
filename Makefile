@@ -16,5 +16,11 @@ sync: build/main.pdf
 	git commit -m 'sync'
 	git checkout master
 
+teormin:
+	mkdir -p build
+	cat main.tex | sed 's/^%//g' > teormin.tex
+	rubber --into=build --pdf teormin.tex
+	rm teormin.tex
+
 clean:
 	rm -rf build
